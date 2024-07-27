@@ -49,7 +49,7 @@ if(isset($_GET['delete'])){
          while($fetch_message = $select_messages->fetch(PDO::FETCH_ASSOC)){
    ?>
    <div class="box">
-   <p> user id : <span><?= $fetch_message['user_id']; ?></span></p>
+   <p> user id : <span><?= $fetch_message['id']; ?></span></p>
    <p> name : <span><?= $fetch_message['name']; ?></span></p>
    <p> email : <span><?= $fetch_message['email']; ?></span></p>
    <p> number : <span><?= $fetch_message['number']; ?></span></p>

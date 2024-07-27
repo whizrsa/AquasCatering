@@ -8,7 +8,7 @@ if(isset($_SESSION['user_id'])){
     $user_id = $_SESSION['user_id'];
 }else{
     $user_id = '';
-    header('location: home.php');
+    header('location: user_login.php');
 }
 
 if(isset($_POST['delete'])) {
@@ -73,12 +73,12 @@ include 'components/user_header.php';
             <img src="uploaded_img/<?=$fetch_cart['image']; ?>" alt="food-image" class="image">
             <div class="name"><?= $fetch_cart['name']; ?></div>
             <div class="flex">
-                <div class="price">R<span><?= $fetch_cart['price']; ?></span>/-</div>
+                <div class="price">Price: R<span><?= $fetch_cart['price']; ?></span></div>
                 <input type="number" name="qty" class="qty" min="1" max="99" onkeypress="if(this.value.length == 2) return false;" value="<?=$fetch_cart['quantity']; ?>">
                 <button type="submit" class="fas fa-edit" name="update_qty"></button>
             </div>
             <div class="sub-total">
-                    sub total : <span>R<?=$sub_total = ($fetch_cart['price'] * $fetch_cart['quantity']); ?>/-</span>
+                    sub total : <span>R<?=$sub_total = ($fetch_cart['price'] * $fetch_cart['quantity']); ?></span>
             </div>
             <input type="submit" value="add to cart" name="add_to_cart" class="btn">
             <input type="submit" value="delete item" onclick="return confirm('delete this from cart?');" name="delete" class="delete-btn">

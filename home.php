@@ -13,6 +13,7 @@ if(isset($_SESSION['user_id'])){
 include 'components/wishlist_cart.php';
 
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -20,7 +21,6 @@ include 'components/wishlist_cart.php';
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home</title>
 
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css" />
    
    <!-- font awesome cdn link  -->
@@ -39,52 +39,54 @@ include 'components/user_header.php';
 ?>
 
 <div class="home-bg">
-    <section class="home">
 
-        <div class="swiper-container home-slider">
+<section class="home">
 
-            <div class="swiper-wrapper">
+   <div class="swiper home-slider">
+   
+   <div class="swiper-wrapper">
 
-                <div class="swiper-slide slide">
-                    <div class="image">
-                        <img src="images/redwine1.webp" alt="">
-                    </div>
-                    <div class="content">
-                        <span>upto 50% off</span>
-                        <h3>latest redwine</h3>
-                        <a class="btn" href="shop.php">buy now</a>
-                    </div>
-                </div>
+      <div class="swiper-slide slide">
+         <div class="image">
+            <img src="images/smoothie2.webp" alt="">
+         </div>
+         <div class="content">
+            <span>Smoothies 50% off</span>
+            <h3>Hot Specials</h3>
+            <a href="shop.php" class="btn">shop now</a>
+         </div>
+      </div>
 
-                <div class="swiper-slide slide">
-                    <div class="image">
-                        <img src="images/smoothie2.webp" alt="">
-                    </div>
-                    <div class="content">
-                        <span>upto 50% off</span>
-                        <h3>latest smoothie</h3>
-                        <a class="btn" href="shop.php">buy now</a>
-                    </div>
-                </div>
+      <div class="swiper-slide slide">
+         <div class="image">
+            <img src="images/redwine2.webp" alt="">
+         </div>
+         <div class="content">
+            <span>Wine 50% off</span>
+            <h3>Hot Specials</h3>
+            <a href="shop.php" class="btn">shop now</a>
+         </div>
+      </div>
 
-                <div class="swiper-slide slide">
-                    <div class="image">
-                        <img src="images/cake3.webp" alt="">
-                    </div>
-                    <div class="content">
-                        <span>upto 50% off</span>
-                        <h3>latest food</h3>
-                        <a class="btn" href="shop.php">buy now</a>
-                    </div>
-                </div>
+      <div class="swiper-slide slide">
+         <div class="image">
+            <img src="images/cake3.webp" alt="">
+         </div>
+         <div class="content">
+            <span>Chocolate Cake 50% off</span>
+            <h3>Hot Specials</h3>
+            <a href="shop.php" class="btn">shop now</a>
+         </div>
+      </div>
 
-                <div>
-                    <div class="swiper-pagination"></div>
-                </div>
-            </div>
-        
-        </div>
-    </section>
+   </div>
+
+      <div class="swiper-pagination"></div>
+
+   </div>
+
+</section>
+
 </div>
 
 <!-- home category section starts -->
@@ -101,6 +103,7 @@ include 'components/user_header.php';
      $select_products->execute();
      if($select_products->rowCount() > 0){
       while($fetch_product = $select_products->fetch(PDO::FETCH_ASSOC)){
+
    ?>
    <form action="" method="post" class="swiper-slide slide">
       <input type="hidden" name="pid" value="<?= $fetch_product['id']; ?>">
@@ -112,16 +115,22 @@ include 'components/user_header.php';
       <img src="uploaded_img/<?= $fetch_product['image_01']; ?>" alt="">
       <div class="name"><?= $fetch_product['name']; ?></div>
       <div class="flex">
-         <div class="price"><span>R</span><?= $fetch_product['price']; ?><span>/-</span></div>
+      <div class="price"><span>R</span><?= $fetch_product['price']; ?><span></span></div>
+      </div>
+      <div class="flex">
+        <input type="submit" value="add to cart" class="btn" name="add_to_cart">
          <input type="number" name="qty" class="qty" min="1" max="99" onkeypress="if(this.value.length == 2) return false;" value="1">
       </div>
-      <input type="submit" value="add to cart" class="btn" name="add_to_cart">
+    
+     
    </form>
    <?php
+
       }
    }else{
       echo '<p class="empty">no products added yet!</p>';
    }
+   
    ?>
 
    </div>
@@ -131,6 +140,9 @@ include 'components/user_header.php';
    </div>
 
 </section>
+
+
+
 
 
 <?php 
@@ -143,32 +155,35 @@ include 'components/footer.php';
 
 <script>
     var swiper = new Swiper(".home-slider", {
-        loop:true,
+        loop: true,
         grabCursor: true,
-      pagination: {
-        el: ".swiper-pagination",
-      },
+        slidesPerView: 1,
+        pagination: {
+            el: ".swiper-pagination",
+            clickable: true,
+        },
     });
 
     var swiper = new Swiper(".products-slider", {
-   loop:true,
-   spaceBetween: 20,
-   pagination: {
-      el: ".swiper-pagination",
-      clickable:true,
-   },
-   breakpoints: {
-      550: {
-        slidesPerView: 2,
-      },
-      768: {
-        slidesPerView: 2,
-      },
-      1024: {
-        slidesPerView: 3,
-      },
-   },
-});
+        loop: true,
+        spaceBetween: 20,
+        slidesPerView: 1,
+        pagination: {
+            el: ".swiper-pagination",
+            clickable: true,
+        },
+        breakpoints: {
+            550: {
+                slidesPerView: 2,
+            },
+            768: {
+                slidesPerView: 2,
+            },
+            1024: {
+                slidesPerView: 3,
+            },
+        },
+    });
 </script>
 </body>
 </html>
