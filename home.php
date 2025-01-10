@@ -48,7 +48,7 @@ include 'components/user_header.php';
 
       <div class="swiper-slide slide">
          <div class="image">
-            <img src="images/smoothie2.webp" alt="">
+            <img src="images/smImage-removebg-preview.png" alt="">
          </div>
          <div class="content">
             <span>Smoothies 50% off</span>
@@ -59,7 +59,7 @@ include 'components/user_header.php';
 
       <div class="swiper-slide slide">
          <div class="image">
-            <img src="images/redwine2.webp" alt="">
+            <img src="images/wnImg-removebg-preview.png" alt="">
          </div>
          <div class="content">
             <span>Wine 50% off</span>
@@ -70,7 +70,7 @@ include 'components/user_header.php';
 
       <div class="swiper-slide slide">
          <div class="image">
-            <img src="images/cake3.webp" alt="">
+            <img src="images/ckImg-removebg-preview.png" alt="">
          </div>
          <div class="content">
             <span>Chocolate Cake 50% off</span>
